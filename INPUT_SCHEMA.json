@@ -1,0 +1,53 @@
+{
+    "title": "Amazon Reviews Scraper",
+    "description": "Reliably extract product reviews from Amazon. Handles blocked requests and returns structured data.",
+    "type": "object",
+    "schema": {
+        "type": "object",
+        "properties": {
+            "url": {
+                "title": "Product Reviews URL",
+                "type": "string",
+                "description": "Full URL to Amazon product reviews page, e.g., https://www.amazon.com/product-reviews/B08N5WRWNW"
+            },
+            "asin": {
+                "title": "Product ASIN",
+                "type": "string",
+                "description": "Amazon Product ID (10 characters), e.g., B08N5WRWNW"
+            },
+            "domain": {
+                "title": "Amazon Domain",
+                "type": "string",
+                "description": "Amazon domain to use",
+                "default": "com",
+                "enum": ["com", "co.uk", "de", "fr", "ca", "co.jp", "in", "com.au", "es", "it"]
+            },
+            "max_reviews": {
+                "title": "Maximum Reviews",
+                "type": "integer",
+                "description": "Maximum number of reviews to scrape",
+                "default": 10,
+                "minimum": 1,
+                "maximum": 100
+            },
+            "page": {
+                "title": "Page Number",
+                "type": "integer",
+                "description": "Reviews page number to start from",
+                "default": 1,
+                "minimum": 1
+            },
+            "proxy": {
+                "title": "Use Apify Proxy",
+                "type": "object",
+                "properties": {
+                    "use_apify_proxy": {
+                        "type": "boolean",
+                        "description": "Route through Apify proxy for reliability",
+                        "default": true
+                    }
+                }
+            }
+        }
+    }
+}
