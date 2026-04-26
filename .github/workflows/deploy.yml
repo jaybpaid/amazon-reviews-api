@@ -1,0 +1,46 @@
+name: Deploy Amazon Reviews API to Apify
+
+on:
+  push:
+    branches: [master, main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          
+      - name: Install Apify CLI
+        run: npm install -g apify-cli
+        
+      - name: Login to Apify
+        run: apify login --token ${{ secrets.APIFY_TOKEN }}
+        
+      - name: Push and Build Actor
+        run: |
+          cd amazon-reviews-api
+          apify push -v 0.0.${{ github.run_number }}
+          
+      - name: Get Actor URL
+        run: |
+          echo "Actor deployed! ID: ${{ secrets.APIFY_ACTOR_ID }}"
+          echo "::set-output name=actor_url::https://apify.com/actor/${{ secrets.APIFY_ACTOR_ID }}"
+        shell: bash
+        
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Amazon Reviews API deployed successfully!"
+        
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ Deployment failed - check logs"
