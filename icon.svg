@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900"/>
+      <stop offset="100%" style="stop-color:#FFCC00"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="80" fill="url(#grad)"/>
+  
+  <!-- Amazon Box -->
+  <rect x="106" y="140" width="300" height="232" rx="20" fill="#fff" opacity="0.9"/>
+  
+  <!-- Rating Stars -->
+  <polygon points="160,200 165,215 180,215 168,225 173,240 160,230 147,240 152,225 140,215 155,215" fill="#FFD700"/>
+  <polygon points="200,200 205,215 220,215 208,225 213,240 200,230 187,240 192,225 180,215 195,215" fill="#FFD700"/>
+  <polygon points="240,200 245,215 260,215 248,225 253,240 240,230 227,240 232,225 220,215 235,215" fill="#FFD700"/>
+  <polygon points="280,200 285,215 300,215 288,225 293,240 280,230 267,240 272,225 260,215 275,215" fill="#FFD700"/>
+  <polygon points="320,200 325,215 340,215 328,225 333,240 320,230 307,240 312,225 300,215 315,215" fill="#FFD700"/>
+  
+  <!-- Review lines -->
+  <rect x="150" y="260" width="212" height="12" rx="6" fill="#ddd"/>
+  <rect x="150" y="280" width="260" height="8" rx="4" fill="#eee"/>
+  <rect x="150" y="296" width="230" height="8" rx="4" fill="#eee"/>
+  <rect x="150" y="312" width="280" height="8" rx="4" fill="#eee"/>
+  
+  <!-- Amazon Smile -->
+  <path d="M210 340 Q256 380 302 340" stroke="#232F3E" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M302 340 L310 345" stroke="#232F3E" stroke-width="12" fill="none" stroke-linecap="round"/>
+</svg>
